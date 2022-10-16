@@ -1,0 +1,22 @@
+spring:
+  sql:
+    init:
+      mode: always #always
+  datasource:
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jdbcex
+    username: root
+    password: admin
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #<!--  as it is Object field name is db then we can use -->
+    show-sql: true
+    defer-datasource-initialization: true # don't use schema always
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql : true
