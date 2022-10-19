@@ -4,11 +4,13 @@ package com.example.springbootjpa.repository;
 import com.example.springbootjpa.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.history.RevisionRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends RevisionRepository<Product, Integer, Integer>,
+        JpaRepository<Product, Integer> {
 
     Product findByName(String name);
 
