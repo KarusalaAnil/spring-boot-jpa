@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -48,12 +49,17 @@ public class ProductService {
     public Product updateProduct(int id, Product productRequest) {
         // get the product from DB by id
         // update with new value getting from request
-        Product existingProduct = repository.findById(id).get(); // DB
-        existingProduct.setName(productRequest.getName());
-        existingProduct.setDescription(productRequest.getDescription());
-        existingProduct.setPrice(productRequest.getPrice());
-        existingProduct.setProductType(existingProduct.getProductType());
-        return repository.save(existingProduct);
+        Optional optional = repository.findById(id);
+        System.out.println(optional.isPresent());
+        if (optional.isPresent()) {
+            Product existingProduct = (Product) optional.get();
+            existingProduct.setName(productRequest.getName());
+            existingProduct.setDescription(productRequest.getDescription());
+            existingProduct.setPrice(productRequest.getPrice());
+            existingProduct.setProductType(existingProduct.getProductType());
+            return repository.save(existingProduct);
+        }
+        return null;
     }
 
     public long deleteProduct(int id) {

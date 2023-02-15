@@ -30,14 +30,14 @@ public class Product  {
     private String description;
     private String productType;
 
-    @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createAt;
-    @CreatedBy
-    private String createdBy;
-    @LastModifiedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedAt;
-    @LastModifiedBy
-    private String lastModifiedBy;
+//    @CreatedDate
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createAt;
+//    @CreatedBy
+//    private String createdBy;
+//    @LastModifiedDate
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date lastModifiedAt;
+//    @LastModifiedBy
+//    private String lastModifiedBy;
 }
